@@ -1,0 +1,85 @@
+module.exports.config = {
+  name: "Bestdp",
+  version: "1.0.0",
+  hasPermssion: 0,
+  credits: "FAIZ ANSARI",
+  description: "Zues Favorite Picture",
+  commandCategory: "Stylish Girls Picture",
+  usages: "ownfiles",
+  cooldowns: 3,
+  dependencies: {
+    "request":"",
+    "fs-extra":"",
+    "axios":""
+  }
+};
+
+module.exports.run = async({api,event,args,client,Users,Threads,__GLOBAL,Currencies}) => {
+const axios = global.nodemodule["axios"];
+const request = global.nodemodule["request"];
+const fs = global.nodemodule["fs-extra"];
+  var link = [
+"https://i.postimg.cc/3xVMs87P/a0061f5982f1ecf28921cc9b1acf8895.jpg",
+"https://i.postimg.cc/nLF7tJkG/fc29d3fe8427e00b098d90fc52aae050.jpg",
+"https://i.postimg.cc/ry0nKB69/e3008d8d30dd8e51b892a35c160969e7.jpg",
+"https://i.postimg.cc/rpDWfLNn/521b9864d5808702cd117505bc3964d3.jpg",
+"https://i.postimg.cc/RCgSZnBt/94412da7061e187c5235520a1db02a91.jpg",
+"https://i.postimg.cc/Bv4kFM5n/bae328d38989c4904fca2d61932b3867.jpg",
+"https://i.postimg.cc/yNfKYMqH/ed5e6c22cc66a7896b9ca97b9074761b.jpg",
+"https://i.postimg.cc/7Z98mFZ2/9e2f96c6fe23a48447bcd7785cd9cab3.jpg",
+"https://i.postimg.cc/X7XCjbTV/805b7f4ec007464c3fdcbc93333eac0a.jpg",
+"https://i.postimg.cc/tTXsLQ3G/b12eede5f01811bd2bcbd21bd643d747.jpg",
+"https://i.postimg.cc/zfpzHLg4/793ca4592f3d93fe5476798885e173bb.jpg",
+"https://i.postimg.cc/MpSfyQnG/94a7dfe05378e4f7b85373f913c6c811.jpg",
+"https://i.postimg.cc/HkRKZTCj/cec88990b3bc00f556f722e9ad790a1b.jpg",
+"https://i.postimg.cc/CLysQdR3/3f0149c7a9856e802f3fb09f9f539493.jpg",
+"https://i.postimg.cc/GpSkJp0S/7a08725897dd45b0136418bfcf045223.jpg",
+"https://i.postimg.cc/Df1Xm6zN/6d2b8b0388879e2bda47e0f9f5e8fa98.jpg",
+"https://i.postimg.cc/m2w1yrCN/052743863dfa0437491fd29b52bf9907.jpg",
+"https://i.postimg.cc/Jh9szHCm/b1717da3aeeb31aaa84c4edab07c5ab8.jpg",
+"https://i.postimg.cc/Rhhyphq6/8e357dd0205b33f058c2a81875c7a515.jpg",
+"https://i.postimg.cc/MGZCf9xm/d7eb7f799a45951421d9df17e5166c5e.jpg",
+"https://i.postimg.cc/SN0HfSks/353e67d1f203a42a121e70150fddd8b5.jpg",
+"https://i.postimg.cc/XYLhW9FG/90b39c39f08821a29801566cc16c3122.jpg",
+"https://i.postimg.cc/KvJrvfq2/27bf73ffe60581737e00e7e294277e1c.jpg",
+"https://i.postimg.cc/wTGyGG47/c7cd0b42aa3a55527b4c9a08d0095b81.jpg",
+"https://i.postimg.cc/sfnvMLrw/2aeadafc190fd37d96ccd7834f159c1a.jpg",
+"https://i.postimg.cc/MT9Kjnhv/996ad3cbdc0e2b5932d2b9da5ab7bde4.jpg",
+"https://i.postimg.cc/vm3d0pXK/c94f9ad685a10a9dd842736a4062e451.jpg",
+"https://i.postimg.cc/y8nVGg8n/1931902-bigthumbnail.jpg",
+"https://i.postimg.cc/DyTnydWB/ScrQ0k.jpg",
+"https://i.postimg.cc/rshJbN7M/girlsdp-2bc453c3-1622738504709-sc-cmprsd-40.jpg",
+"https://i.postimg.cc/SN3LMRhT/b06331d515eaa56a0eb1c262cb60e10e.jpg",
+"https://i.postimg.cc/0QVD22nC/428cd2364ad865fbc3ae35601cd120f8.jpg",
+"https://i.postimg.cc/sg5WGJKx/9ebff768132441e34603e78a8e2c73e3.jpg",
+"https://i.postimg.cc/WzDFNmh2/35bb8d89ed61fb44b861ef58a0f746bf.jpg",
+"https://i.postimg.cc/cCqgJgYw/d9278c7cc5d9386827a0e16519750a9f.jpg",
+"https://i.postimg.cc/DyPJ2zz4/d9154c19d76e5b319295322d36427680.jpg",
+"https://i.postimg.cc/bw6ZtFkz/d0ec01fae0cd4022773e64b73ce1bb51.jpg",
+"https://i.postimg.cc/WpMtn4gY/Contact-for-edit-7088406928-519x650.jpg",
+"https://i.postimg.cc/LXkRznwz/dc8ec0e7cac7ceb950b6f594a4524c52.jpg",
+"https://i.postimg.cc/LXVKJGgD/74f2f63787790c1287c710511c5e3e33.jpg",
+"https://i.postimg.cc/T1kz9m9W/images-6.jpg",
+"https://i.postimg.cc/y83MmDSk/images-5.jpg",
+"https://i.postimg.cc/PqGB2dmK/425967b69e8c2359e4d0b74cf9f96c76.jpg",
+"https://i.postimg.cc/5t1sXy5c/HD-wallpaper-girls-cartoon-attitude.jpg",
+"https://i.postimg.cc/bNcC7mGN/images-4.jpg",
+"https://i.postimg.cc/MK9B7T82/phonwallpaper-239cdf01-1655119857752-sc-cmprsd-75.jpg",
+"https://i.postimg.cc/fbfDdV6Y/wallpaper2you-549699.jpg",
+"https://i.postimg.cc/Pq7sY1Sp/186-1861518-stylish-girl-with-hat-wallpapers-stylish-sara-gurpal.jpg",
+"https://i.postimg.cc/0ycbgHyT/15180480536-351018197b-b.jpg",
+"https://i.postimg.cc/t4tMtwzV/7b86a390961da5c43aed549a371d3df9.jpg",
+"https://i.postimg.cc/tTS0dwpz/FrDwyz.jpg",
+"https://i.postimg.cc/0QgnTCZq/e41e1005d10175cd6dbae1ea50e0f5ff.jpg",
+"https://i.postimg.cc/7P919Dv4/a4e11de2588610e02cfa5de61365d947.jpg",
+"https://i.postimg.cc/gjsfc7Bh/6774eace3840adba726a7941ba4d5096.jpg",
+"https://i.postimg.cc/RhCXVZtS/ccec07cafbe870b147314b25a67bc73c.jpg",
+"https://i.postimg.cc/NfnqV3h9/images-3.jpg",
+"https://i.postimg.cc/L5fCbbjf/images-2.jpg",
+"https://i.postimg.cc/cCH17f3V/280cf913e92c6e854e4a38780d87959c.jpg",
+"https://i.postimg.cc/tCFR3RnR/download.jpg",
+"https://i.postimg.cc/XqchvPXW/girl-photo-hd-wallpaper-hidden-face-dp-mano-name-photodoozy.jpg"
+  ];
+   var callback = () => api.sendMessage({body:`💝 𝐌𝐚𝐝𝐞 𝐁𝐲 𝙁𝘼𝙄𝙕 𝘼𝙉𝙎𝘼𝙍𝙄 💝 : ${link.length}`,attachment: fs.createReadStream(__dirname + "/cache/5.jpg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/5.jpg"));	
+      return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/5.jpg")).on("close",() => callback());
+   };
